@@ -27,7 +27,7 @@ Each Snowflake ID consists of three parts:
 
 ```toml
 [dependencies]
-snowflake = { path = "/path/to/snowflake" }
+snowflake-rs-impl="*"
 ```
 ## Example
 

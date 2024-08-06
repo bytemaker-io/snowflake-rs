@@ -131,6 +131,16 @@ impl Snowflake {
             }
         }
     }
+    /// Parses a Snowflake ID into its components
+    /// # Arguments
+    /// * `id` - The Snowflake ID to parse
+    /// # Returns
+    /// A tuple containing the timestamp, node ID, and sequence number
+    /// # Example
+    /// ```
+    /// let (timestamp, node, sequence) = Snowflake::parse_id(1234567890);
+    /// println!("Timestamp: {}, Node: {}, Sequence: {}", timestamp, node, sequence);
+    /// ```
     pub fn parse_id(id: u64) -> (u64, u16, u16) {
         let timestamp = (id >> TIMESTAMP_SHIFT) & ((1 << TIMESTAMP_BITS) - 1);
         let node = ((id >> NODE_SHIFT) & ((1 << NODE_BITS) - 1)) as u16;
