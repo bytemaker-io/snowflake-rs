@@ -131,7 +131,12 @@ impl Snowflake {
             }
         }
     }
-
+    pub fn parse_id(id: u64) -> (u64, u16, u16) {
+        let timestamp = (id >> TIMESTAMP_SHIFT) & ((1 << TIMESTAMP_BITS) - 1);
+        let node = ((id >> NODE_SHIFT) & ((1 << NODE_BITS) - 1)) as u16;
+        let sequence = (id & ((1 << STEP_BITS) - 1)) as u16;
+        (timestamp, node, sequence)
+    }
     // Waits until the next millisecond
     fn wait_next_millis(&self, last_timestamp: i64) -> Result<i64, SnowflakeError> {
         let start = Instant::now();
@@ -156,7 +161,11 @@ impl Snowflake {
 
     // Returns the current timestamp in milliseconds
     fn current_time_millis(&self) -> i64 {
-        self.start.elapsed().as_millis() as i64 + self.epoch_ms
+        use std::time::{SystemTime, UNIX_EPOCH};
+        SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .expect("Time went backwards")
+            .as_millis() as i64
     }
 }
 

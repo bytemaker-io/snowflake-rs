@@ -5,7 +5,17 @@ use std::thread;
 
 use std::time::{Duration, Instant};
 use parking_lot::Mutex;
-use snowflake::snowflake::Snowflake;
+use snowflake_rs_impl::snowflake::Snowflake;
+
+
+///Test generate one id
+#[test]
+fn test_generate_one_id() {
+    let snowflake = Snowflake::new(1, None).unwrap();
+    let id = snowflake.generate().unwrap();
+    println!("Generated ID: {}", id);
+    assert!(id > 0);
+}
 
 /// Test the number of IDs generated per second using a single thread
 #[test]
