@@ -1,9 +1,11 @@
 [package]
-name = "snowflake"
+name = "snowflake-rs"
 version = "0.1.0"
 edition = "2021"
+description = "snowflake rust implementation"
+license = "MIT"
 
 [dependencies]
 parking_lot = "0.12.3"
 log = "0.4.22"
-env_logger = "0.10.0"
+env_logger = "0.10.2"
