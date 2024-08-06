@@ -71,3 +71,9 @@ cargo test
 - Multi-threaded ID generation: Measures IDs generated per second using multiple threads.
 - Uniqueness: Ensures that all generated IDs are unique.
 - Node ID range validation: Verifies that creating a Snowflake with an invalid node ID returns an error.
+
+## Benchmarking
+```rust
+cargo bench
+```
+Approximately 4,100,000 IDs per second
