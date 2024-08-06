@@ -1,6 +1,6 @@
 [package]
 name = "snowflake-rs-impl"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "A Rust implementation of Twitter's Snowflake ID generation algorithm"
 repository = "https://github.com/bytemaker-io/snowflake-rs"
