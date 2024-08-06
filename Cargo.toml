@@ -1,5 +1,5 @@
 [package]
-name = "snowflake-rs"
+name = "snowflake-rs-impl"
 version = "0.1.0"
 edition = "2021"
 description = "snowflake rust implementation"
