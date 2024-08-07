@@ -1,6 +1,6 @@
 [package]
 name = "snowflake-rs-impl"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 description = "A Rust implementation of Twitter's Snowflake ID generation algorithm"
 repository = "https://github.com/bytemaker-io/snowflake-rs"
@@ -11,6 +11,7 @@ parking_lot = "0.12.3"
 log = "0.4.22"
 env_logger = "0.10.2"
 criterion = "0.3"
+serde = { version = "1.0.204", features = ["derive"] }
 [[bench]]
 name = "snowflake_benchmark"
 harness = false

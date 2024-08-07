@@ -2,7 +2,9 @@ use std::time::Instant;
 use std::sync::atomic::{AtomicI64, Ordering};
 use std::error::Error;
 use std::fmt;
+
 use log::{debug, warn};
+use serde::{Deserialize, Serialize};
 
 /// Bit allocation for different parts of the Snowflake ID
 const NODE_BITS: u8 = 10;
@@ -21,7 +23,7 @@ const NODE_SHIFT: u8 = STEP_BITS;
 const DEFAULT_EPOCH: i64 = 1609459200000;
 
 /// Errors that can occur during Snowflake ID generation
-#[derive(Debug)]
+#[derive(Debug,Serialize,Deserialize)]
 pub enum SnowflakeError {
     /// Indicates that the system clock has moved backwards
     ClockMovedBackwards,
